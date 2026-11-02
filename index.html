@@ -3,126 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAM - Catálogo Digital</title>
+    <title>Mi Catálogo Digital</title>
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: #f7f7f9; 
-            margin: 0; 
-            padding: 0; 
-            text-align: center; 
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f9f9f9; color: #333; }
         
-        /* Contenedor de la foto de portada */
-        .portada-container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto 30px auto;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-            overflow: hidden;
-        }
-        .portada-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Título decorativo intermedio */
-        .titulo-seccion {
-            color: #333;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 40px 0 20px 0;
-            letter-spacing: 0.5px;
-        }
-
-        /* Cuadrícula para las imágenes */
-        .catalogo-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 20px 40px 20px; 
-        }
-        
-        /* Tarjetas de los productos */
-        .producto-card { 
-            background: white; 
-            padding: 12px; 
-            border-radius: 14px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-            display: flex; 
+        /* Portada Principal */
+        .portada {
+            position: relative;
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('portada.jpg') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+            text-align: center;
+            color: white;
+            padding: 20px;
         }
-        .producto-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-        }
-        .producto-card img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 8px; 
-            object-fit: cover; 
-            display: block;
-        }
+        .portada h1 { font-size: 2.5rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+        .portada p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Contenedor del Catálogo */
+        .catalogo-container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .titulo-seccion { text-align: center; margin-bottom: 30px; font-size: 1.8rem; position: relative; padding-bottom: 10px; }
+        .titulo-seccion::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background-color: #333; }
+
+        /* Cuadrícula de Productos */
+        .grid-productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .producto-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .producto-card:hover { transform: translateY(-5px); }
+        .producto-img { width: 100%; height: 300px; object-fit: cover; background-color: #eaeaea; }
+        .producto-info { padding: 20px; text-align: center; }
+        .producto-titulo { font-size: 1.1rem; margin-bottom: 8px; font-weight: 600; }
+        .producto-precio { color: #e67e22; font-size: 1.2rem; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <!-- LA PORTADA PRINCIPAL (Fija arriba) -->
-    <div class="portada-container">
-        <img src="image_rs8MUS.png" alt="MAM Miguel Angel Montú Distribuciones - Portada">
-    </div>
+    <!-- PORTADA -->
+    <header class="portada">
+        <h1>Bienvenidos a Nuestro Catálogo</h1>
+        <p>Descubre nuestra colección exclusiva</p>
+    </header>
 
-    <h2 class="titulo-seccion">Nuestros Productos</h2>
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <main class="catalogo-container">
+        <h2 class="titulo-seccion">Nuestros Productos</h2>
+        
+        <div class="grid-productos">
+            <!-- Producto 1 -->
+            <div class="producto-card">
+                <img src="imagen1.jpg" alt="Producto 1" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-titulo">Nombre del Producto 1</div>
+                    <div class="producto-precio">$0.00</div>
+                </div>
+            </div>
 
-    <!-- GALERÍA DE FOTOS EN TU ORDEN ESTRICTO -->
-    <div class="catalogo-grid" id="galeria">
-        <!-- Las imágenes se cargan automáticamente desde el script de abajo -->
-    </div>
+            <!-- Producto 2 -->
+            <div class="producto-card">
+                <img src="imagen2.jpg" alt="Producto 2" class="producto-img">
+                <div class="producto-info">
+                    <div class="producto-titulo">Nombre del Producto 2</div>
+                    <div class="producto-precio">$0.00</div>
+                </div>
+            </div>
 
-    <script>
-        // Lista completa de imágenes restantes en el orden exacto enviado
-        const imagenesRestantes = [
-            // Tanda 1
-            "image_sRvVgX.png", "image_KNPwOz.png", "image_SS_nft.png", "image_z09Bms.png", 
-            "image_CNZQKY.png", "image_v17Fxn.png", "image_t3E4PG.png", "image_qFUKrH.png", "image_ctwdfn.png",
-            // Tanda 2
-            "image_dqSo66.png", "image_-vWPiz.png", "image_NHxB5t.png", "image_qETDCl.png", 
-            "image__z4wE_.png", "image_cpd7NR.png", "image_ShcjlL.png", "image_8i2vbN.png", "image_7OFVgR.png", "image_kACMpe.png",
-            // Tanda 3
-            "image_cu3Kar.png", "image_63M5QU.png", "image_FhaW5T.png", "image__w6p42.png", 
-            "image_DNQOO2.png", "image_Sm-dC4.png", "image_wwwvNg.png", "image_J20bb3.png", "image_SwF24l.png", "image_8S-hxN.png",
-            // Tanda 4
-            "image_FemhA4.png", "image_uY3ciV.png", "image_4Uvqqk.png",
-            // Tanda 5
-            "image_U2cKG7.png", "image_fDuw4R.png", "image_prsEHV.png", "image_X3kSlk.png",
-            // Tanda 6
-            "image_-XbxJ8.png", "image_HwHRjL.png", "image_ueWaaG.png", "image_82JT4z.png", "image_cYnb4W.png", "image_OSHGkz.png",
-            // Tanda 7
-            "image_cvuIpG.png", "image_g_CzkN.png", "image_BornYb.png", "image_D59b2Q.png", "image_J4fD6Z.png", "image_28BmiC.png", "image_8Rrcwj.png", "image_q4bpL-.png", "image_EMA3nh.png",
-            // Tanda 8
-            "image_CD9wDg.png", "image_yf5B18.png", "image_67dWxm.png", "image_OHxzhM.png", "image_m9I41a.png", "image_fwdhCq.png", "image_mtiAsx.png", "image_rI9tzV.png", "image_nLs6A3.png",
-            // Tanda 9
-            "image_0RL-qX.png", "image_45X-LP.png", "image_5uLpJU.png", "image_dUkiYq.png", "image_LYQ0TV.png"
-        ];
+            <!-- Puedes copiar y pegar el bloque de "Producto" para añadir tantos como necesites -->
+        </div>
+    </main>
 
-        const galeria = document.getElementById("galeria");
-
-        // Inserta cada imagen dentro de la galería manteniendo el orden de la lista
-        imagenesRestantes.forEach((nombreArchivo) => {
-            const card = document.createElement("div");
-            card.className = "producto-card";
-            card.innerHTML = `<img src="${nombreArchivo}" alt="Folleto de Productos">`;
-            galeria.appendChild(card);
-        });
-    </script>
 </body>
-</html
+</html>

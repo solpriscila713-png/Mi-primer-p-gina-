@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAM - Catálogo Digital</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: #f7f7f9; 
+            margin: 0; 
+            padding: 0; 
+            text-align: center; 
+        }
+        
+        /* Contenedor de la foto de portada */
+        .portada-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 30px auto;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            overflow: hidden;
+        }
+        .portada-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Título decorativo intermedio */
+        .titulo-seccion {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 40px 0 20px 0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Cuadrícula para las imágenes */
+        .catalogo-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px 40px 20px; 
+        }
+        
+        /* Tarjetas de los productos */
+        .producto-card { 
+            background: white; 
+            padding: 12px; 
+            border-radius: 14px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .producto-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+        .producto-card img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+            object-fit: cover; 
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LA PORTADA PRINCIPAL (Fija arriba) -->
+    <div class="portada-container">
+        <img src="image_rs8MUS.png" alt="MAM Miguel Angel Montú Distribuciones - Portada">
+    </div>
+
+    <h2 class="titulo-seccion">Nuestros Productos</h2>
+
+    <!-- GALERÍA DE FOTOS EN TU ORDEN ESTRICTO -->
+    <div class="catalogo-grid" id="galeria">
+        <!-- Las imágenes se cargan automáticamente desde el script de abajo -->
+    </div>
+
+    <script>
+        // Lista completa de imágenes restantes en el orden exacto enviado
+        const imagenesRestantes = [
+            // Tanda 1
+            "image_sRvVgX.png", "image_KNPwOz.png", "image_SS_nft.png", "image_z09Bms.png", 
+            "image_CNZQKY.png", "image_v17Fxn.png", "image_t3E4PG.png", "image_qFUKrH.png", "image_ctwdfn.png",
+            // Tanda 2
+            "image_dqSo66.png", "image_-vWPiz.png", "image_NHxB5t.png", "image_qETDCl.png", 
+            "image__z4wE_.png", "image_cpd7NR.png", "image_ShcjlL.png", "image_8i2vbN.png", "image_7OFVgR.png", "image_kACMpe.png",
+            // Tanda 3
+            "image_cu3Kar.png", "image_63M5QU.png", "image_FhaW5T.png", "image__w6p42.png", 
+            "image_DNQOO2.png", "image_Sm-dC4.png", "image_wwwvNg.png", "image_J20bb3.png", "image_SwF24l.png", "image_8S-hxN.png",
+            // Tanda 4
+            "image_FemhA4.png", "image_uY3ciV.png", "image_4Uvqqk.png",
+            // Tanda 5
+            "image_U2cKG7.png", "image_fDuw4R.png", "image_prsEHV.png", "image_X3kSlk.png",
+            // Tanda 6
+            "image_-XbxJ8.png", "image_HwHRjL.png", "image_ueWaaG.png", "image_82JT4z.png", "image_cYnb4W.png", "image_OSHGkz.png",
+            // Tanda 7
+            "image_cvuIpG.png", "image_g_CzkN.png", "image_BornYb.png", "image_D59b2Q.png", "image_J4fD6Z.png", "image_28BmiC.png", "image_8Rrcwj.png", "image_q4bpL-.png", "image_EMA3nh.png",
+            // Tanda 8
+            "image_CD9wDg.png", "image_yf5B18.png", "image_67dWxm.png", "image_OHxzhM.png", "image_m9I41a.png", "image_fwdhCq.png", "image_mtiAsx.png", "image_rI9tzV.png", "image_nLs6A3.png",
+            // Tanda 9
+            "image_0RL-qX.png", "image_45X-LP.png", "image_5uLpJU.png", "image_dUkiYq.png", "image_LYQ0TV.png"
+        ];
+
+        const galeria = document.getElementById("galeria");
+
+        // Inserta cada imagen dentro de la galería manteniendo el orden de la lista
+        imagenesRestantes.forEach((nombreArchivo) => {
+            const card = document.createElement("div");
+            card.className = "producto-card";
+            card.innerHTML = `<img src="${nombreArchivo}" alt="Folleto de Productos">`;
+            galeria.appendChild(card);
+        });
+    </script>
+</body>
+</html
